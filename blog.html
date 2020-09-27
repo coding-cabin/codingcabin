@@ -134,8 +134,35 @@
     </header>
 
     <main class="wrapper">
+      <header class="hero">
+        <div class="hero__inner">
+          <h1 class="hero__heading">Blog page</h1>
+          <ul class="hero__breadcrumbs">
+            <li><a href="/">Home</a></li>
+            <li><a href="#">Page</a></li>
+            <li class="is-current"><a href="#">Blog page</a></li>
+          </ul>
+        </div>
+      </header>
       <section id="main" class="wrapper__posts">
         <div class="wrapper__posts--article">
+          <article class="posts">
+            <figure class="posts__image">
+              <img src="https://via.placeholder.com/500x350" alt="" />
+            </figure>
+            <div class="body__text">
+              <p>
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Deserunt nam excepturi expedita laborum veritatis corrupti
+                cumque aut, atque fugit qui enim provident iste rerum quasi
+                quaerat ipsa perferendis quis totam dolore eius dicta esse modi
+                sint. Quos unde quod dicta repudiandae provident dignissimos qui
+                voluptates aliquid accusamus ratione, magnam neque minima animi
+                praesentium! Voluptatum repellendus unde quam modi numquam
+                tempore?
+              </p>
+            </div>
+          </article>
           <article class="posts">
             <div class="body__text">
               <h1>An example post</h1>
@@ -251,6 +278,54 @@
               </div>
             </div>
           </article>
+
+          <nav
+            class="pagination"
+            role="navigation"
+            aria-label="Pagination Navigation"
+          >
+            <ul class="pagination__inner">
+              <li>
+                <a href="#"
+                  ><svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="butt"
+                    stroke-linejoin="bevel"
+                  >
+                    <path d="M19 12H6M12 5l-7 7 7 7" />
+                  </svg>
+                  Prev</a
+                >
+              </li>
+              <li class="pagination__item"><a href="#">1</a></li>
+              <li class="pagination__item"><a href="#">2</a></li>
+              <li class="pagination__item"><a href="#">3</a></li>
+              <li class="pagination__item"><a href="#">4</a></li>
+              <li>
+                <a href="#"
+                  >Next
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="1.5"
+                    stroke-linecap="butt"
+                    stroke-linejoin="bevel"
+                  >
+                    <path d="M5 12h13M12 5l7 7-7 7" /></svg
+                ></a>
+              </li>
+            </ul>
+          </nav>
         </div>
         <aside class="wrapper__posts--sidebar">
           <div class="latest__c">
@@ -275,9 +350,106 @@
               </li>
             </ol>
           </div>
+          <div class="container__sidebar">
+            <div class="sidebar">
+              <h2 class="sidebar__heading">About</h2>
+              <p>
+                Coding Cabin is a Discord server that aims to bring together the
+                theme-making community of Tumblr with the goal of increasing
+                cooperation among and visibility for everyone who provide the
+                site with beautiful themes and other content!
+              </p>
+            </div>
+            <div class="sidebar">
+              <h2 class="sidebar__heading">Statistics</h2>
+              <div class="box">
+                <span class="box__head">Est.</span>
+                <span>July 22nd, 2018 </span>
+              </div>
+              <div class="box">
+                <span class="box__head">Members</span><span>0</span>
+              </div>
+            </div>
+          </div>
         </aside>
       </section>
     </main>
+
+    <footer class="footer" role="contentinfo">
+      <div class="footer__inner">
+        <div class="footer__inner--grid">
+          <h2>Quick Links</h2>
+          <ul aria-label="A group of quick links">
+            <li><a href="/faqs">Frequently Asked Question</a></li>
+            <li><a href="/rss">RSS</a></li>
+            <li><a href="/credits">Credits</a></li>
+            <li><a href="/members">Members</a></li>
+            <li><a href="/tagged/answered">Answered</a></li>
+          </ul>
+        </div>
+        <div class="footer__inner--grid">
+          <h2>Affiliates</h2>
+          <figure
+            role="group"
+            aria-labelledby="affiliates"
+            class="footer__inner--grid__groupimg"
+          >
+            <figcaption id="affiliates" class="sr-only">
+              The lists of affiliates respectively
+            </figcaption>
+
+            <figure role="group" aria-labelledby="fig1">
+              <a
+                href="https://margotofrph.tumblr.com"
+                aria-label="Margot of RPH"
+              >
+                <img
+                  src="https://api.tumblr.com/v2/blog/margotofrph.tumblr.com/avatar/96"
+                  alt=""
+                />
+              </a>
+              <figcaption id="fig1" class="sr-only">Margot of RPH</figcaption>
+            </figure>
+
+            <figure role="group" aria-labelledby="fig2">
+              <a
+                href="https://paletteworld.tumblr.com"
+                aria-label="Pallete World"
+              >
+                <img
+                  src="https://api.tumblr.com/v2/blog/paletteworld.tumblr.com/avatar/96"
+                  alt=""
+              /></a>
+
+              <figcaption id="fig2" class="sr-only">Pallete World</figcaption>
+            </figure>
+
+            <figure role="group" aria-labelledby="fig3">
+              <a href="https://yeahps.tumblr.com" aria-label="Yeah PS">
+                <img
+                  src="https://api.tumblr.com/v2/blog/yeahps.tumblr.com/avatar/96"
+                  alt=""
+                />
+              </a>
+              <figcaption id="fig3" class="sr-only">Yeah PS</figcaption>
+            </figure>
+          </figure>
+        </div>
+        <div class="footer__inner--grid">
+          <h2>Cabin Content</h2>
+          <ul aria-label="A group of cabin content links" class="capsule-links">
+            <li><a href="/tagged/cabin themes">Themes</a></li>
+            <li><a href="/tagged/cabin pages">Pages</a></li>
+            <li><a href="/tagged/cabin widgets">Widgets</a></li>
+            <li><a href="/tagged/cabin resources">Resources</a></li>
+            <li><a href="/tagged/cabin icons">Icons</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__copyright">
+        Copyright &copy; CodingCabin. Powered by Tumblr
+      </div>
+    </footer>
 
     <script src="js/navigation.js"></script>
   </body>

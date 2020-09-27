@@ -89,7 +89,9 @@ fetch(url)
       }
     } // end of response
   })
-  .catch((err) => console.log(err));
+  .catch((err) => {
+    console.log(err);
+  });
 
 const blog__wrapper = document.querySelector(
   ".wrapper__blog--inner__slideshow"

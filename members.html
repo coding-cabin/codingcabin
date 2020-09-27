@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Members | Coding Cabin</title>
+    <link
+      rel="shortcut icon"
+      href="https://64.media.tumblr.com/avatar_5766c7a243de_128.pnj"
+    />
+    <link rel="stylesheet" href="css/main.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css"
+    />
+    <!--[if (lt IE 9)
+      ]><script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/min/tiny-slider.helper.ie8.js"></script
+    ><![endif]-->
+  </head>
+  <body>
+    <a href="#main" class="skip-link">Jump directly to main content</a>
+
+    {block:IndexPage}
+    <p>Text</p>
+    {/block:IndexPage} {block:HomePage}
+    <h1>Title</h1>
+    {/block:HomePage}
+
+    <header class="nav">
+      <div class="nav__inner">
+        <div class="nav__inner--logo" aria-label="Coding Cabin Logo">
+          <img
+            role="presentation"
+            src="https://64.media.tumblr.com/avatar_5766c7a243de_128.pnj"
+            alt=""
+          />
+        </div>
+        <nav
+          role="navigation"
+          class="nav__inner--links"
+          aria-label="Primary Navigation"
+        >
+          <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="/members">Members</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/awards">Coding Awards</a></li>
+            <li><a href="/blog.html">Blog</a></li>
+            <li class="btn-follow">
+              <a
+                role="button"
+                tabindex="0"
+                href="https://tumblr.com/follow/{name}"
+                >Follow Us</a
+              >
+            </li>
+            <li class="btn-dark">
+              <a href="#" aria-label="Dark mode"
+                ><svg
+                  viewBox="0 0 15 15"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="15"
+                  height="15"
+                >
+                  <path
+                    d="M7.5 1.5v-1m0 13.99v-.998m6-5.997h1m-13 0h-1m2-4.996l-1-1m12 0l-1 1m-10 9.993l-1 1m12 0l-1-1m-2-4.997a2.999 2.999 0 01-3 2.998 2.999 2.999 0 113-2.998z"
+                    stroke="currentColor"
+                    stroke-linecap="square"
+                  ></path></svg
+              ></a>
+            </li>
+          </ul>
+        </nav>
+
+        <nav
+          role="navigation"
+          class="nav__inner--mobile"
+          aria-label="Primary Mobile Navigation"
+        >
+          <button aria-label="Button mobile navigation" aria-expanded="false">
+            <svg
+              role="presentation"
+              xmlns="http://www.w3.org/2000/svg"
+              width="28"
+              height="28"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </button>
+
+          <ul class="wrapper__mobile">
+            <li class="close-btn">
+              <a href="#">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="35"
+                  height="35"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <line x1="18" y1="6" x2="6" y2="18"></line>
+                  <line x1="6" y1="6" x2="18" y2="18"></line>
+                </svg>
+                <div class="sr-only">Close</div>
+              </a>
+            </li>
+            <li><a href="/">Home</a></li>
+            <li><a href="/members">Members</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/awards">Coding Awards</a></li>
+            <li class="btn-follow">
+              <a
+                role="button"
+                tabindex="0"
+                href="https://tumblr.com/follow/{name}"
+              >
+                <span>Follow Us</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <script src="js/navigation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/discord.js@12.3.1/webpack/discord.min.js"></script>
+    <script type="module" src="js/discord.js"></script>
+  </body>
+</html>
