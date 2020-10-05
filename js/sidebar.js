@@ -25,6 +25,8 @@ fetch(blog)
     let read = data.response;
     let item = ``;
 
+    console.log(read);
+
     for (let i = 0; i <= 3; i++) {
       const posts = read.posts[i];
       const { post_url, summary } = posts;

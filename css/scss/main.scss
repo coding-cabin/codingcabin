@@ -422,7 +422,7 @@ html {
 
   &__contact {
     min-height: 100vh;
-    padding: 2.5rem 0 3.5rem 0;
+    padding: 2.5rem 0 5rem 0;
 
     .container-grid {
       display: grid;
@@ -458,7 +458,7 @@ html {
         align-self: center;
         font-family: var(--body-font);
         border: 1px solid var(--article-link);
-        color: var(--body-heading-color);
+        color: var(--article-heading);
         text-align: center;
         padding: 5rem 2.5rem 4rem 2.5rem;
         -webkit-border-radius: 8px;
@@ -501,6 +501,7 @@ html {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 2.5rem;
+        margin-bottom: 4.5rem;
 
         @media (max-width: 60rem) {
           grid-template-columns: 1fr;
@@ -515,7 +516,7 @@ html {
 
           h1 {
             font-family: var(--heading-font);
-            color: var(--tertiary-color);
+            color: var(--article-heading);
             font-size: 2.25rem;
 
             font-weight: normal;
@@ -524,7 +525,7 @@ html {
 
         // grid content
         .grid-content {
-          color: var(--article-body);
+          color: var(--article-heading);
         }
       }
     }
@@ -763,13 +764,27 @@ html {
               }
 
               button {
+                display: inline-flex;
+                align-items: center;
                 cursor: pointer;
                 border: 1px solid var(--border-color);
                 box-shadow: 0;
                 background: transparent;
 
+                span {
+                  display: none;
+                }
+
                 color: var(--article-heading);
-                padding: 0.5rem 0.65rem;
+                padding: 0.65rem 0.65rem;
+                -webkit-border-radius: 7px;
+                -moz-border-radius: 7px;
+                border-radius: 7px;
+                transition: 0.5s;
+
+                &:hover {
+                  transform: scale(0.9);
+                }
               }
             }
           }
@@ -1396,6 +1411,41 @@ html {
             margin-left: -0.85rem;
           }
         }
+      }
+    }
+  }
+
+  &__search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // max-width: 60rem;
+    // margin: 0 auto;
+    // border: 1px solid red;
+
+    margin-bottom: 2.5rem;
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+
+      @media (max-width: 60rem) {
+        flex-direction: column;
+      }
+
+      input[type="search"] {
+        min-width: 30rem;
+        border: 1px solid var(--border-color);
+        padding: 1rem 1rem;
+        background-color: var(--article);
+      }
+
+      button[type="submit"] {
+        background-color: var(--article-link);
+        color: var(--article);
+        border: 0;
+        padding: 0.85rem 1.35rem;
+        cursor: pointer;
       }
     }
   }
