@@ -8,7 +8,7 @@
       rel="shortcut icon"
       href="https://64.media.tumblr.com/avatar_5766c7a243de_128.pnj"
     />
-    <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="css/main.min.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=DM+Serif+Display:ital@0;1&display=swap"
       rel="stylesheet"
@@ -146,7 +146,60 @@
       </header>
       <section id="main" class="wrapper__posts">
         <div class="wrapper__posts--article">
+          <article class="posts pinned">
+            <div class="pinned__block">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.5"
+                stroke-linecap="butt"
+                stroke-linejoin="bevel"
+              >
+                <circle cx="11.5" cy="8.5" r="5.5" />
+                <path d="M11.5 14v7" />
+              </svg>
+              <span>Pinned posts</span>
+            </div>
+            <div class="body__text">
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Natus
+              fugiat cum, architecto, eius explicabo, incidunt deserunt
+              laboriosam id veniam recusandae error saepe minus cupiditate.
+              Nobis cum nulla pariatur consectetur consequatur?
+            </div>
+          </article>
+
           <article class="posts">
+            <div class="posts__perma">
+              <div class="date">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="24"
+                  height="24"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="1.5"
+                  stroke-linecap="butt"
+                  stroke-linejoin="bevel"
+                >
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <polyline points="12 6 12 12 16 14"></polyline>
+                </svg>
+                Posted on Monday, 05 October 2020
+              </div>
+              <ul class="action">
+                <li>
+                  <button><span aria-hidden="true">Reblog</span></button>
+                </li>
+                <li>
+                  <button><span aria-hidden="true">Like</span></button>
+                </li>
+              </ul>
+            </div>
             <figure class="posts__image">
               <img src="https://via.placeholder.com/500x350" alt="" />
             </figure>
@@ -156,11 +209,14 @@
                 Deserunt nam excepturi expedita laborum veritatis corrupti
                 cumque aut, atque fugit qui enim provident iste rerum quasi
                 quaerat ipsa perferendis quis totam dolore eius dicta esse modi
-                sint. Quos unde quod dicta repudiandae provident dignissimos qui
+                sint.
+              </p>
+              <blockquote>
+                Quos unde quod dicta repudiandae provident dignissimos qui
                 voluptates aliquid accusamus ratione, magnam neque minima animi
                 praesentium! Voluptatum repellendus unde quam modi numquam
                 tempore?
-              </p>
+              </blockquote>
             </div>
           </article>
           <article class="posts">
@@ -234,7 +290,7 @@
                     src="https://assets.tumblr.com/images/default_avatar/octahedron_open_128.png"
                     alt=""
                   />
-                  <span>Anonymous asked a question</span>
+                  <span><a href="#">Anonymous</a> asked a question</span>
                 </div>
                 <div class="question__p--inner">
                   Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -329,26 +385,10 @@
         </div>
         <aside class="wrapper__posts--sidebar">
           <div class="latest__c">
-            <h2>Latest Challenge</h2>
-            <ol class="latest__c--inner">
-              <li>
-                <h3>Fruitilicious Challenge</h3>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Laboriosam deserunt velit quibusdam tenetur, delectus,
-                cupiditate sequi aut possimus minima dolorem doloremque.
-              </li>
-              <li>
-                <h3>Pagecraft Challenge</h3>
-                Ea minus ipsum, debitis soluta quibusdam dignissimos! Voluptatem
-                soluta totam expedita numquam inventore labore enim maiores.
-              </li>
-              <li>
-                Distinctio voluptatem magni harum amet ad exercitationem iste
-                asperiores doloribus illo animi, ex error assumenda ipsam
-                placeat, totam optio, est adipisci. Nostrum eveniet qui sit
-                voluptate maxime mollitia optio itaque.
-              </li>
-            </ol>
+            <h1>Latest Challenge</h1>
+            <div class="latest__c--inner">
+              <!-- content -->
+            </div>
           </div>
           <div class="container__sidebar">
             <div class="sidebar">
@@ -452,5 +492,6 @@
     </footer>
 
     <script src="js/navigation.js"></script>
+    <script src="js/sidebar.js"></script>
   </body>
 </html>
