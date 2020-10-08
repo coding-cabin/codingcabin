@@ -1,0 +1,107 @@
+// footer
+.footer {
+  font-family: var(--body-font);
+  border-top: 1px solid var(--border-color);
+
+  &__inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.5rem;
+
+    max-width: 65rem;
+    margin: auto;
+    padding: 3.5rem 0rem;
+
+    @media screen and (max-width: 60rem) {
+      grid-template-columns: repeat(1, 1fr);
+      padding: 2.85rem 1.85rem;
+    }
+
+    &--grid {
+      h2 {
+        font-family: var(--heading-font);
+        font-weight: normal;
+        margin-bottom: 1.5rem;
+        color: var(--body-heading-color);
+      }
+
+      ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+
+        li {
+          & + li {
+            margin-top: 0.35rem;
+          }
+
+          a {
+            color: var(--header-navigation-link);
+          }
+        }
+      }
+
+      &__groupimg {
+        display: flex;
+
+        img {
+          height: 60px;
+          border: 5px solid var(--border-color);
+          -webkit-border-radius: 100%;
+          -moz-border-radius: 100%;
+          border-radius: 100%;
+        }
+
+        figure {
+          & + figure {
+            margin-left: -0.85rem;
+          }
+        }
+      }
+    }
+  }
+
+  &__search {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // max-width: 60rem;
+    // margin: 0 auto;
+    // border: 1px solid red;
+
+    margin-bottom: 2.5rem;
+
+    form {
+      display: flex;
+      flex-wrap: wrap;
+
+      @media (max-width: 60rem) {
+        flex-direction: column;
+      }
+
+      input[type="search"] {
+        min-width: 30rem;
+        border: 1px solid var(--border-color);
+        padding: 1rem 1rem;
+        background-color: var(--article);
+      }
+
+      button[type="submit"] {
+        background-color: var(--article-link);
+        color: var(--article);
+        border: 0;
+        padding: 0.85rem 1.35rem;
+        cursor: pointer;
+      }
+    }
+  }
+
+  &__copyright {
+    margin-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+    color: var(--body-color);
+
+    padding: 1rem 1rem;
+  }
+}

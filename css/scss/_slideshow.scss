@@ -1,0 +1,73 @@
+// slideshow on the blog section
+.tns-outer {
+  position: relative;
+
+  [data-action] {
+    display: none;
+  }
+}
+
+.tns-nav {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50%;
+  z-index: 2;
+
+  display: flex;
+  justify-content: center;
+  padding: 1.65rem 0;
+
+  @media screen and (max-width: 60rem) {
+    display: none;
+  }
+
+  & > button {
+    width: 9px;
+    height: 9px;
+    padding: 0;
+    margin: 0 5px;
+    border-radius: 50%;
+    background: var(--tertiary-color);
+    border: 0;
+    opacity: 0.25;
+
+    &.tns-nav-active {
+      opacity: 1;
+    }
+  }
+}
+
+.tns-controls {
+  width: calc(50% - 40px);
+  position: absolute;
+  display: flex;
+
+  justify-content: space-between;
+  transform: translateY(-50%);
+  top: 50%;
+  left: 0;
+  z-index: 9;
+
+  & > button {
+    background-color: var(--tertiary-color);
+    color: #fff;
+    border: 0;
+    padding: 1rem 1rem;
+
+    &[disabled] {
+      cursor: not-allowed;
+      opacity: 0.35;
+    }
+
+    svg {
+      vertical-align: middle;
+    }
+  }
+
+  @media screen and (max-width: 60rem) {
+    width: 100%;
+    top: 25%;
+    transform: translateY(-50%);
+  }
+}
