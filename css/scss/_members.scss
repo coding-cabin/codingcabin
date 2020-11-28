@@ -30,8 +30,8 @@
       padding: 0.65rem 1.35rem;
       margin: 1.5rem 0 1.5rem 0;
 
-      background-color: var(--primary-color);
-      border: 2px solid var(--primary-color);
+      background-color: var(--article-link);
+      border: 2px solid var(--article-link);
       color: #fff;
 
       text-decoration: none;
@@ -48,13 +48,19 @@
         margin-left: 0.5rem;
       }
 
-      &:hover {
+      &:hover,
+      &:focus {
         background-color: transparent;
         color: var(--primary-color);
       }
     }
 
     &__grid {
+      &--admin {
+        border-width: 2px;
+        border-color: var(--article-link);
+      }
+
       position: relative;
       overflow: hidden;
 
