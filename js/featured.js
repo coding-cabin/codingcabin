@@ -1,23 +1,8 @@
 // https://github.com/tumblr/docs/blob/master/api.md
 
-// truncate script
-let truncate = (element, limit, after) => {
-  if (!element || !limit) return;
-
-  let content = element.innerHTML.trim();
-
-  content = content.split(" ").slice(0, limit);
-  content = content.join(" ") + (after ? after : "");
-
-  element.innerHTML = content;
-};
-
 const name = "codingcabin";
 const tags = "codingawards";
 const apiKey = "EygUfFKmzfMHjUFCtqLwa3K6i8SGLJsiiozHyPEWNFfRrb6O4W";
-
-// https://api.tumblr.com/v2/blog/pitchersandpoets.tumblr.com/posts/photo?tag=new+york+yankees
-// https://api.tumblr.com/v2/blog/codingcabin.tumblr.com/posts/photo?api_key=EygUfFKmzfMHjUFCtqLwa3K6i8SGLJsiiozHyPEWNFfRrb6O4W&tag=codingawards
 const blog =
   "https://api.tumblr.com/v2/blog/" +
   name +
@@ -26,22 +11,18 @@ const blog =
   "&tag=" +
   tags;
 
-// console.log(blog);
-
 const url =
   "https://api.tumblr.com/v2/blog/" +
   name +
   ".tumblr.com/posts/photo?api_key=" +
   apiKey;
 
-// console.log(url);
 const container = document.querySelector(".wrapper__featured--inner__content");
 
-fetch(url)
-  .then((res) => res.json())
-  .then((data) => {
-    let read = data.response;
-    // console.log(read);
+axios.get(url)
+  .then((response) => {
+    let read = response.data.response;
+    console.log(read);
 
     for (let i = 0; i <= 1; i++) {
       let posts = read.posts[i];
@@ -97,11 +78,9 @@ const blog__wrapper = document.querySelector(
   ".wrapper__blog--inner__slideshow"
 );
 
-fetch(blog)
-  .then((res) => res.json())
-  .then((data) => {
-    let read = data.response;
-    // console.log(read);
+axios.get(blog)
+  .then((response) => {
+    let read = response.data.response;
 
     for (let i = 0; i <= 3; i++) {
       let posts = read.posts[i];

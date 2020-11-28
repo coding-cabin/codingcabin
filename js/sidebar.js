@@ -5,27 +5,15 @@ const blog = `https://api.tumblr.com/v2/blog/${name}.tumblr.com/posts/photo?api_
 
 const sidebar = document.querySelector(".latest__c--inner");
 
-let truncate = (element, limit, after) => {
-  if (!element || !limit) return;
-
-  let content = element.innerHTML.trim();
-
-  content = content.split(" ").slice(0, limit);
-  content = content.join(" ") + (after ? after : "");
-
-  element.innerHTML = content;
-};
-
 let loader = `<div class="loader"></div>`;
 sidebar.innerHTML = loader;
 
-fetch(blog)
-  .then((res) => res.json())
-  .then((data) => {
-    let read = data.response;
+axios.get(blog)
+  .then((response) => {
+    let read = response.data.response;
     let item = ``;
 
-    console.log(read);
+    // console.log(read);
 
     for (let i = 0; i <= 3; i++) {
       const posts = read.posts[i];
@@ -37,7 +25,6 @@ fetch(blog)
         </a>
       </article>`;
 
-      // sidebar.appendChild(item);
       sidebar.innerHTML = item;
 
       const tumblr_blog = document.querySelectorAll(".tumblr_blog");

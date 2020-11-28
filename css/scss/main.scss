@@ -9,7 +9,7 @@
 @import "slideshow";
 
 .wrapper {
-  margin-top: 6.75rem;
+  margin-top: 6rem;
 
   @media (max-width: 60rem) {
     margin-top: 4.75rem;
@@ -18,5 +18,5 @@
   @import "homepage";
   @import "posts";
   @import "contact";
+  @import "members";
 }
-
