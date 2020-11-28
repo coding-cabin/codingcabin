@@ -35,6 +35,7 @@ body.dark-theme {
 
   // --primary-color: #6d2646;
   --secondary-color: hsl(var(--hue), 20%, 18%);
+  --tertiary-color: hsl(var(--hue), 40%, 78%);
 
   --article: hsl(var(--hue), 20%, 22%);
   --article-heading: hsl(var(--hue), 10%, 70%);
@@ -42,4 +43,3 @@ body.dark-theme {
 
   --border-color: hsl(var(--hue), 10%, 30%);
 }
-

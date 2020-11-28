@@ -1,4 +1,4 @@
-const api = "https://sheetdb.io/api/v1/cihe5164zic3b?limit=4";
+const api = "https://sheetdb.io/api/v1/cihe5164zic3b";
 const container = document.querySelector(".members");
 
 axios.get(api)
@@ -26,9 +26,6 @@ axios.get(api)
             `
 
             container.appendChild(grid);
-
-
-            // console.log(a);
         }
         
     }).catch((err) => {
