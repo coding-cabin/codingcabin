@@ -1,4 +1,5 @@
-const api = "https://sheetdb.io/api/v1/cihe5164zic3b";
+// const api = "https://sheetdb.io/api/v1/cihe5164zic3b";
+const api = "https://script.google.com/macros/s/AKfycbzbzvLyKmcx1a5RaHHnoc48TMQSjQWiVtOxwE13uAehd-Musww/exec";
 const container = document.querySelector(".members");
 
 // number of members to load each time
@@ -72,7 +73,7 @@ search_bar.onkeyup = (e) => {
  * LOAD MEMBERS
  */
 
-axios.get(api + '/count')
+axios.get(api + '?count=true')
     .then(response => {
         total = response["data"]["rows"];
     })
@@ -83,6 +84,7 @@ axios.get(api + '/count')
 const load_members = () => {
     axios.get(api + `?limit=${limit}&offset=${offset}`)
         .then(response => {
+            console.log(response);
             let data = response.data;
             let data_length = data.length;
 
@@ -94,11 +96,10 @@ const load_members = () => {
             for (let i = 0; i < data_length; i++) {
                 let members = data[i];
 
-                let {
-                    name,
-                    role,
-                    username
-                } = members;
+                let [name, username, role, display] = members;
+
+                if (name.trim() == "")
+                    continue;
 
                 //  :D
                 let img = `https://api.tumblr.com/v2/blog/${username}.tumblr.com/avatar/512`;
@@ -106,13 +107,13 @@ const load_members = () => {
                 let grid = document.createElement("div");
                 grid.className = "members__grid";
                 grid.innerHTML = `
-                <figure><img src="${img}" alt="${username}"></figure>
+                <figure><img src="${img}" alt="${username}" onload="this.classList.add('loaded')"></figure>
                 <h2>${name} / <span>${username}</span></h2>
-                <p class="role"><span>${role}</span></p>
+                <p class="role"><span>${display}</span></p>
                 <a role="button" class="members__url" href="https://${username}.tumblr.com">See blog <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="butt" stroke-linejoin="bevel"><path d="M5 12h13M12 5l7 7-7 7"/></svg></a>
-            `
+            `;
 
-                if (role === "admin") {
+                if (display === "admin") {
                     grid.classList.add("members__grid--admin");
                 }
 
