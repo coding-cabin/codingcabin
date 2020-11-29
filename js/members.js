@@ -4,6 +4,12 @@ const container = document.querySelector(".members");
 // number of members to load each time
 const limit = 10;
 
+// current load offset
+let offset = 0;
+
+// total # of members
+let total = Infinity;
+
 // add a <div id="load_more_container"><button id="load_more">Load More</button></div> to the end of the container
 // can change these in the future as long as you keep saving the load more button to the var load_more and its container to load_more_container (could be itself)
 const load_more_container = document.createElement("div");
@@ -13,14 +19,78 @@ load_more_container.appendChild(load_more);
 load_more.id = "load_more";
 load_more.innerText = "Load More";
 
-const load_members = () => {
-    let offset = document.querySelectorAll(".members__grid").length;
+// search bar
+const search_bar = document.querySelector("input#search_bar");
 
+/**********
+ * SEARCH
+ */
+
+// edit this if u want to hide them a specific way
+const hide_member = m => {
+    m.style.display = "none";
+}
+
+// edit this if u want them to show in a specific way
+const show_member = m => {
+    return;
+}
+
+const search_members = query => {
+    // escape special regex characters
+    const query_regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), "i");
+    const all_members = Array.from(document.querySelectorAll(".members__grid"));
+
+    // const filterd_members = all_members.filter(m => m.querySelector("h2").innerText.match(query_regex));
+
+    all_members.forEach(m => {
+        if (!m.querySelector("h2").innerText.match(query_regex))
+            hide_member(m);
+        else
+            show_member(m);
+    })
+}
+
+// edit this if u want to reset the members in a specific way
+const reset_search = () => {
+    const all_members = Array.from(document.querySelectorAll(".members__grid"));
+
+    all_members.forEach(m => m.style.display = "");
+}
+
+search_bar.onkeyup = (e) => {
+    console.log(e.code);
+    console.log(search_bar.value, search_bar.value.trim().length);
+    if (search_bar.value.trim().length > 0)
+        search_members(search_bar.value.trim());
+    else
+        reset_search();
+}
+
+
+/********
+ * LOAD MEMBERS
+ */
+
+axios.get(api + '/count')
+    .then(response => {
+        total = response["data"]["rows"];
+    })
+    .catch(err => {
+        total = Infinity
+    })
+
+const load_members = () => {
     axios.get(api + `?limit=${limit}&offset=${offset}`)
         .then(response => {
             // console.log(response.data);
             let data = response.data;
             let data_length = data.length;
+
+            if (data_length == 0) {
+                load_more_container.style.display = "none";
+                return;
+            }
 
             // console.log(data_length);
             for (let i = 0; i < data_length; i++) {
@@ -51,11 +121,21 @@ const load_members = () => {
                 container.appendChild(grid);
             }
 
+            if (offset >= total) 
+                load_more_container.style.display = "none";
+
             // move the load more to the bottom of the members container
             container.appendChild(load_more_container);
+
+            // update if there is a search currently happening
+            if (search_bar.value.trim().length > 0)
+                search_members(search_bar.value.trim());
+            else
+                reset_search();
         }).catch((err) => {
             console.log(err);
         });
+    offset += limit;
 }
 
 load_members();
