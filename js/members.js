@@ -2,7 +2,7 @@ const api = "https://sheetdb.io/api/v1/cihe5164zic3b";
 const container = document.querySelector(".members");
 
 // number of members to load each time
-const limit = 10;
+const limit = 8;
 
 // current load offset
 let offset = 0;
