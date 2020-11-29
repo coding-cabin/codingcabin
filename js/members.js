@@ -28,20 +28,20 @@ const search_bar = document.querySelector("input#search_bar");
 
 // edit this if u want to hide them a specific way
 const hide_member = m => {
-    m.style.display = "none";
+    m.classList.add("hide");
+    m.classList.remove("show");
 }
 
 // edit this if u want them to show in a specific way
 const show_member = m => {
-    return;
+    m.classList.add("show");
+    m.classList.remove("hide");
 }
 
 const search_members = query => {
     // escape special regex characters
     const query_regex = new RegExp(query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), "i");
     const all_members = Array.from(document.querySelectorAll(".members__grid"));
-
-    // const filterd_members = all_members.filter(m => m.querySelector("h2").innerText.match(query_regex));
 
     all_members.forEach(m => {
         if (!m.querySelector("h2").innerText.match(query_regex))
@@ -55,7 +55,7 @@ const search_members = query => {
 const reset_search = () => {
     const all_members = Array.from(document.querySelectorAll(".members__grid"));
 
-    all_members.forEach(m => m.style.display = "");
+    all_members.forEach(m => show_member(m));
 }
 
 search_bar.onkeyup = (e) => {
@@ -83,7 +83,6 @@ axios.get(api + '/count')
 const load_members = () => {
     axios.get(api + `?limit=${limit}&offset=${offset}`)
         .then(response => {
-            // console.log(response.data);
             let data = response.data;
             let data_length = data.length;
 
@@ -92,7 +91,6 @@ const load_members = () => {
                 return;
             }
 
-            // console.log(data_length);
             for (let i = 0; i < data_length; i++) {
                 let members = data[i];
 
