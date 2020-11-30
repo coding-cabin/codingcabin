@@ -193,6 +193,13 @@
       figure {
         transform: translateZ(1px);
 
+        &.loaded {
+          background-color: var(--white);
+          &:before {
+            display: none;
+          }
+        }
+
         &:before {
           content: "";
 
@@ -236,7 +243,6 @@
 
           object-fit: cover;
           object-position: center;
-          // background-color: var(--article);
         }
       }
 
