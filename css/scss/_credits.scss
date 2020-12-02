@@ -70,6 +70,31 @@
         font-size: 1rem;
       }
 
+      ul {
+        margin: 1rem 2rem 2rem 0rem;
+        padding: 0;
+
+        list-style: none;
+
+        li {
+          display: flex;
+          align-items: center;
+          position: relative;
+
+          &:before {
+            content: "";
+            width: 0.65rem;
+            height: 0.65rem;
+            margin-right: 0.75rem;
+            background-color: var(--article-link);
+
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+          }
+        }
+      }
+
       ol {
         margin: 1rem 2rem 2rem 2rem;
         padding: 0;
@@ -127,10 +152,7 @@
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 2.5rem;
-
-  //   @media (max-width: 60rem) {
-  //     grid-template-columns: 1fr;
-  //   }
+  margin-bottom: 2.5rem;
 
   &__grid {
     &.html {
